@@ -2,7 +2,7 @@
 import {Color4Bg} from '@color4bg/react';
 import {Scrollbar} from "./component/Scrollbar.tsx";
 
-export function App() {
+function App() {
     return <Scrollbar>
         <div className="relative h-screen">
             <div className="absolute inset-0 z-0 w-screen">
@@ -41,3 +41,5 @@ export function App() {
         </div>
     </Scrollbar>
 }
+
+export default App;
