@@ -1,0 +1,1 @@
+declare module '@color4bg/react';
