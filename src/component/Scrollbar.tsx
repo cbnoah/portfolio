@@ -137,12 +137,25 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode 
                     e.preventDefault();
 
                     // @ts-ignore
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement && contentRef.current) {
+                        // Get the position relative to the scroll container
+                        const elementRect = targetElement.getBoundingClientRect();
+                        const containerRect = contentRef.current.getBoundingClientRect();
+
+                        // Calculate position within the container
+                        const relativeTop = contentRef.current.scrollTop + (elementRect.top - containerRect.top);
+
+                        contentRef.current.scrollTo({
+                            top: relativeTop - 250,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
-        })
+        }, []);
 
         return (
             <div className={"relative h-full w-full overflow-hidden"}>
@@ -153,7 +166,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode 
                 </div>
                 <div className={"flex flex-col items-center justify-center"}>
                     <div
-                        className={`absolute h-25 bg-gray-50/40 z-100 transition-all duration-200 flex flex-row 
+                        className={`absolute h-25 bg-gray-50/40 z-100 transition-all duration-200 flex flex-row
                     ${smallTopBar ? "w-6xl top-10 rounded-3xl py-6 px-10 drop-shadow-xl drop-shadow-black/30 backdrop-blur-2xl" : "w-full rounded-b-3xl top-0 right-0 py-4 px-15 backdrop-blur-xl drop-shadow-black/30"}`}>
                         <div className={"h-full min-w-full flex flex-row justify-between items-center"}>
                             <div
