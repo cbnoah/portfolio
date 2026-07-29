@@ -2,14 +2,57 @@
 import {Color4Bg} from '@color4bg/react';
 import {Scrollbar} from "./component/Scrollbar.tsx";
 import {ComicButton} from "./component/ComicButton.tsx";
-import {useState} from "react";
-import {useActiveSection} from "./hooks/useActiveSection.tsx";
+import {useEffect, useState} from "react";
 import {AboutSection} from "./component/sections/AboutSection.tsx";
 import {ContactSection} from "./component/sections/ContactSection.tsx";
 
 function App() {
     const [scrollEl, setScrollEl] = useState<HTMLDivElement | null>(null);
-    const activeSection = useActiveSection(scrollEl, ["home", "about", "projects", "contact"]);
+    const [activeSection, setActiveSection] = useState("home");
+
+    useEffect(() => {
+        if (!scrollEl) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+                if (visible.length > 0) {
+                    setActiveSection(visible[0].target.id);
+                }
+            },
+            { root: scrollEl, threshold: 0.2 }
+        );
+
+        ["home", "about", "projects", "contact"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href')?.substring(1);
+                if (!targetId || !scrollEl) return;
+
+                const targetElement = document.getElementById(targetId);
+                if (!targetElement) return;
+
+                setActiveSection(targetId);
+
+                const elementRect = targetElement.getBoundingClientRect();
+                const containerRect = scrollEl.getBoundingClientRect();
+                const relativeTop = scrollEl.scrollTop + (elementRect.top - containerRect.top);
+
+                scrollEl.scrollTo({
+                    top: Math.max(0, relativeTop),
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        return () => observer.disconnect();
+    }, [scrollEl]);
 
     return <Scrollbar ref={setScrollEl}>
         <div className="relative h-screen">
@@ -22,7 +65,7 @@ function App() {
                           seed={1000}
                           options={{speed: 1, noise: 0.15}}/>
             </div>
-            <div className={"flex flex-col gap-50"}>
+            <div className={"flex flex-col gap-70"}>
                 <div
                     className="w-full h-screen z-10 relative cursor-default select-none p-10 flex flex-col justify-end items-start"
                     id={"home"}>
@@ -49,11 +92,11 @@ function App() {
                     </div>
                 </div>
                 <section id={"about"}
-                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection == "about" ? "opacity-100" : "opacity-0"}`}>
+                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
                     <AboutSection/>
                 </section>
                 <section id={"projects"}
-                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection == "projects" ? "opacity-100" : "opacity-0"}`}>
+                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
                     <text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent malesuada, metus at
                         venenatis
                         vehicula, enim orci cursus orci, sed pharetra nisi eros eget tortor. Integer faucibus facilisis
@@ -340,7 +383,7 @@ function App() {
                     </text>
                 </section>
                 <section id={"contact"}
-                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection == "contact" ? "opacity-100" : "opacity-0"}`}>
+                         className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
                     <ContactSection/>
                 </section>
             </div>
