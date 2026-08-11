@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss";
 @import "assets/fonts/panchang/css/panchang.css";
 @import "assets/fonts/dindong/css/dindong.css";
@@ -5,6 +6,11 @@
 :root {
     --inset-top-bar-button-shadow: inset 20px 20px 60px #bebebe,
     inset -20px -20px 60px #ffffff;
+}
+
+.jetbrains-mono {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
 }
 
 html {
