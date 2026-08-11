@@ -3,6 +3,11 @@ import "../css/scrollbar.css"
 import "../index.css"
 import {Languages, Moon, Sun} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
+
+interface ScrollbarProps {
+    theme?: boolean
+}
+
 // @ts-ignore
 export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
     ({children, theme}, ref) => {
@@ -179,13 +184,13 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
                             <div
                                 className={`h-full flex flex-row justify-center items-center ${smallTopBar ? "xl:gap-25 gap-10" : "xl:gap-30 gap-15"}`}>
                                 <a href={"#home"}
-                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "home" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Accueil</a>
+                                   className={`text-black text-3xl font-[Anybody] p-5 rounded-3xl transition-all duration-500 ${activeSection == "home" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] font-medium" : "font-light"}`}>Accueil</a>
                                 <a href={"#about"}
-                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "about" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Parcours</a>
+                                   className={`text-black text-3xl font-[Anybody] p-5 rounded-3xl transition-all duration-500 ${activeSection == "about" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] font-medium" : "font-light"}`}>Parcours</a>
                                 <a href={"#projects"}
-                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "projects" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Projects</a>
+                                   className={`text-black text-3xl font-[Anybody] p-5 rounded-3xl transition-all duration-500 ${activeSection == "projects" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] font-medium" : "font-light"}`}>Projects</a>
                                 <a href={"#contact"}
-                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "contact" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Contact</a>
+                                   className={`text-black text-3xl font-[Anybody] p-5 rounded-3xl transition-all duration-500 ${activeSection == "contact" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] font-medium" : "font-light"}`}>Contact</a>
                             </div>
                             <div className={"h-full flex flex-row justify-center items-center gap-7"}>
                                 <div className={"h-full w-0.5 backdrop-invert-100"}></div>
