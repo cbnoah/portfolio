@@ -1,11 +1,11 @@
 import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react";
 import "../css/scrollbar.css"
 import "../index.css"
-import {Languages, SunMoon} from "lucide-react";
+import {Languages, Moon, Sun} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
-
-export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode }>(
-    ({children}, ref) => {
+// @ts-ignore
+export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
+    ({children, theme}, ref) => {
         const contentRef = useRef<HTMLDivElement>(null);
         useImperativeHandle(ref, () => contentRef.current as HTMLDivElement)
         const scrollTrackRef = useRef<HTMLDivElement>(null);
@@ -18,6 +18,13 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode 
         const activeSection = useActiveSection(contentRef.current as HTMLDivElement, ["home", "about", "projects", "contact"]);
 
         const [thumbHeight, setthumbHeight] = useState(150);
+
+        const [isBlackTheme, setBlackTheme] = useState<boolean>(theme);
+
+        const switchThemeStatus = () => {
+            setBlackTheme(!isBlackTheme);
+            localStorage.setItem("isBlackTheme", String(isBlackTheme));
+        }
 
         function handleResize() {
             if (scrollTrackRef.current && contentRef.current) {
@@ -170,16 +177,27 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode 
                     ${smallTopBar ? "w-6xl top-10 rounded-3xl py-6 px-10 drop-shadow-xl drop-shadow-black/30 backdrop-blur-2xl" : "w-full rounded-b-3xl top-0 right-0 py-4 px-15 backdrop-blur-xl drop-shadow-black/30"}`}>
                         <div className={"h-full min-w-full flex flex-row justify-between items-center"}>
                             <div
-                                className={`h-full flex flex-row justify-center items-center ${smallTopBar ? "gap-25" : "gap-30"}`}>
-                                <a href={"#home"} className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "home" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Accueil</a>
-                                <a href={"#about"} className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "about" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Parcours</a>
-                                <a href={"#projects"} className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "projects" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Projects</a>
-                                <a href={"#contact"} className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "contact" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Contact</a>
+                                className={`h-full flex flex-row justify-center items-center ${smallTopBar ? "xl:gap-25 gap-10" : "xl:gap-30 gap-15"}`}>
+                                <a href={"#home"}
+                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "home" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Accueil</a>
+                                <a href={"#about"}
+                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "about" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Parcours</a>
+                                <a href={"#projects"}
+                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "projects" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Projects</a>
+                                <a href={"#contact"}
+                                   className={`text-black text-3xl font-[DINdong] p-5 rounded-3xl transition-all duration-500 ${activeSection == "contact" && "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0]"}`}>Contact</a>
                             </div>
                             <div className={"h-full flex flex-row justify-center items-center gap-7"}>
                                 <div className={"h-full w-0.5 backdrop-invert-100"}></div>
-                                <Languages className={"size-9"}/>
-                                <SunMoon className={"size-9"}/>
+                                <Languages size={30} strokeWidth={1.5}/>
+                                <div className={"cursor-pointer"} onClick={() => switchThemeStatus()}>
+                                    {isBlackTheme ?
+                                        <Sun size={30} strokeWidth={1.5}
+                                             className={"hover:rotate-150 hover:scale-105 transition-transform duration-400"}/> :
+                                        <Moon size={30} strokeWidth={1.5}
+                                              className={"hover:-rotate-360 hover:scale-105 transition-transform duration-400"}/>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
