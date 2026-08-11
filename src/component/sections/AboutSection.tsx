@@ -56,7 +56,8 @@ export function AboutSection() {
                 "                    Donec quis bibendum massa. Aenean id nisi leo. Pellentesque laoreet ex nec sem gravida rutrum. Etiam\n" +
                 "                    placerat nec dolor non aliquet. Suspendisse vel tincidunt erat. Sed bibendum fermentum imperdiet. Aenean\n" +
                 "                    ex sapien, interdum non dictum eget, sollicitudin at sapien. Sed fringilla dui est, non ornare ex\n" +
-                "                    pharetra eu."}/>
+                "                    pharetra eu."}
+        showExpandBtn={true}/>
     ]
     const educationPath = [
         <StepComponent title={"Baccalauréat Général"} company={"Lycée Ozenne"} city={"Toulouse"} country={"France"}
@@ -75,36 +76,36 @@ export function AboutSection() {
     return (
         <div className={"w-full min-h-full flex flex-col items-center justify-start xl:px-80 py-20 gap-20"}>
             <div className={"flex flex-col items-center justify-center"}>
-                <h2 className={"text-5xl font-bold mb-4 font-[DINdong]"}>Experiences Professionnelle</h2>
+                <h2 className={"text-6xl font-black mb-4 font-[Anybody] text-center"}>Experiences Professionnelle</h2>
                 {carreerPath.map((val, index) =>
                     <React.Fragment key={`carrer-${index}`}>
                         {index == 0 &&
-                            <div className={"h-30 w-2 bg-linear-to-b from-transparent from-25% to-gray-200"}></div>
+                            <div className={"h-30 w-1 bg-linear-to-b from-transparent from-25% to-gray-200/50"}></div>
                         }
                         {val}
                         {
                             index == carreerPath.length - 1 ?
                                 <div
-                                    className={"h-15 w-2 bg-linear-to-b from-gray-200 from-75% to-transparent"}></div> :
-                                <div className={"h-20 w-2 bg-gray-200"}></div>
+                                    className={"h-15 w-1 bg-linear-to-b from-gray-200/50 from-75% to-transparent"}></div> :
+                                <div className={"h-20 w-1 bg-gray-200/50"}></div>
                         }
                     </React.Fragment>
                 )}
             </div>
 
             <div className={"flex flex-col items-center justify-center"}>
-                <h2 className={"text-5xl font-bold mb-4 font-[DINdong]"}>Formations</h2>
+                <h2 className={"text-6xl font-black mb-4 font-[Anybody]"}>Formations</h2>
                 {educationPath.map((val, index) =>
                     <React.Fragment key={`education-${index}`}>
                         {index == 0 &&
-                            <div className={"h-30 w-2 bg-linear-to-b from-transparent from-25% to-gray-200"}></div>
+                            <div className={"h-30 w-1 bg-linear-to-b from-transparent from-25% to-gray-200"}></div>
                         }
                         {val}
                         {
                             index == educationPath.length - 1 ?
                                 <div
-                                    className={"h-15 w-2 bg-linear-to-b from-gray-200 from-75% to-transparent"}></div> :
-                                <div className={"h-20 w-2 bg-gray-200"}></div>
+                                    className={"h-15 w-1 bg-linear-to-b from-gray-200 from-75% to-transparent"}></div> :
+                                <div className={"h-20 w-1 bg-gray-200/50"}></div>
                         }
                     </React.Fragment>
                 )}
