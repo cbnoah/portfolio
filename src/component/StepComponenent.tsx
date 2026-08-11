@@ -24,10 +24,10 @@ export function StepComponent({
                               }: StepComponenentProps) {
 
     const [expanded, setExpanded] = useState(false);
-    let [height, setHeight] = useState(showExpandBtn == true && showExpandBtn !== null ? 160 : 150);
+    let [height, setHeight] = useState(showExpandBtn == true && showExpandBtn !== null ? "h-160" : "h-150");
     return (
         <div
-            className={`bg-gray-200/45 ${'h-' + height} w-full rounded-3xl flex flex-col items-center justify-start p-15 gap-8 border border-white/30 hover:border-white hover:bg-gray-200 transition-all duration-300 `}>
+            className={`bg-gray-200/45 ${expanded ? "h-full" : height} w-full rounded-3xl flex flex-col items-center justify-start p-15 gap-8 border border-white/30 hover:border-white hover:bg-gray-200 transition-all duration-300 `}>
             {/*Component header (for infos)*/}
             <div className={"w-full"}>
                 <h3 className={"text-4xl font-extrabold mb-2 font-[Anybody] w-full"}>{title}</h3>
