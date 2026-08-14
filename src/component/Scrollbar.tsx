@@ -1,16 +1,12 @@
 import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react";
 import "../css/scrollbar.css"
 import "../index.css"
-import {Languages, Moon, Sun} from "lucide-react";
+import {Languages} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
+import {ThemeToggle} from "./ThemeToggle.tsx";
 
-interface ScrollbarProps {
-    theme?: boolean
-}
-
-// @ts-ignore
 export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
-    ({children, theme}, ref) => {
+    ({children}, ref) => {
         const contentRef = useRef<HTMLDivElement>(null);
         useImperativeHandle(ref, () => contentRef.current as HTMLDivElement)
         const scrollTrackRef = useRef<HTMLDivElement>(null);
@@ -23,13 +19,6 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
         const activeSection = useActiveSection(contentRef.current as HTMLDivElement, ["home", "about", "projects", "contact"]);
 
         const [thumbHeight, setthumbHeight] = useState(150);
-
-        const [isBlackTheme, setBlackTheme] = useState<boolean>(theme);
-
-        const switchThemeStatus = () => {
-            setBlackTheme(!isBlackTheme);
-            localStorage.setItem("isBlackTheme", String(isBlackTheme));
-        }
 
         function handleResize() {
             if (scrollTrackRef.current && contentRef.current) {
@@ -195,14 +184,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
                             <div className={"h-full flex flex-row justify-center items-center gap-7"}>
                                 <div className={"h-full w-0.5 backdrop-invert-100"}></div>
                                 <Languages size={30} strokeWidth={1.5}/>
-                                <div className={"cursor-pointer"} onClick={() => switchThemeStatus()}>
-                                    {isBlackTheme ?
-                                        <Sun size={30} strokeWidth={1.5}
-                                             className={"hover:rotate-150 hover:scale-105 transition-transform duration-400"}/> :
-                                        <Moon size={30} strokeWidth={1.5}
-                                              className={"hover:-rotate-360 hover:scale-105 transition-transform duration-400"}/>
-                                    }
-                                </div>
+                                <ThemeToggle/>
                             </div>
                         </div>
                     </div>
@@ -212,7 +194,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
                              role={"scrollbar"}
                              className={"h-full relative w-4 pointer-events-auto flex justify-center"}>
                             <div
-                                className={"hidden xl:grid bottom-0 top-0 cursor-pointer absolute w-2 hover:w-full h-full bg-gray-600/50 backdrop-invert-75 rounded-3xl pointer-events-auto transition-all"}
+                                className={"hidden xl:grid bottom-0 top-0 cursor-pointer absolute w-2 hover:w-full h-full bg-gray-600/50 hover:backdrop-invert-75 rounded-3xl pointer-events-auto transition-all"}
                                 ref={scrollTrackRef}
                                 style={{cursor: isDragging ? "grabbing" : undefined}}
                                 onClick={handleTrackClick}></div>
