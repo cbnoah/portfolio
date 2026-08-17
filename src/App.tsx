@@ -6,7 +6,6 @@ import {useEffect, useState} from "react";
 import {AboutSection} from "./component/sections/AboutSection.tsx";
 import {ContactSection} from "./component/sections/ContactSection.tsx";
 import {ThemeProvider} from "./component/ThemeProvider.tsx";
-import {useTheme} from "./hooks/useTheme.ts";
 import {Background} from "./component/Background.tsx";
 import {ProjectSection} from "./component/sections/ProjectSection.tsx";
 
