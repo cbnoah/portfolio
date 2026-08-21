@@ -1,5 +1,6 @@
 import React from "react";
 import {StepComponent} from "../StepComponent.tsx";
+import {ScrollingCarousel} from "../ScrollingCarousel.tsx";
 
 export function AboutSection() {
     const carreerPath = [
@@ -80,13 +81,30 @@ et m'a doté d'une polyvalence technique indispensable pour aborder sereinement 
     return (
         <div className={"w-full min-h-full flex flex-col items-center justify-start xl:px-80 py-20 gap-20"}>
             <div>
-                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>À Propos</h2>
-                <p className={"w-full p-10 dark:bg-[#09090B]/45 bg-gray-200/45 text-lg text-center text-black dark:text-gray-300 rounded-3xl flex flex-col items-center justify-start py-10 px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
-                    Bonjour et bienvenue sur mon portfolio ! Je m’appelle Noah CHARRIN-BOURRAT et je vais entrer en 3ème année de développement logiciel au Campus Ynov de Toulouse, en France. Au cours de ma première année, j’ai découvert un vif intérêt pour le développement d’applications mobiles, mais ma curiosité et ma passion pour l’informatique me poussent à explorer de nombreux domaines différents. J’aime réaliser des projets très variés, allant des jeux vidéo et des API aux applications web complètes. Je suis toujours impatient d’apprendre de nouvelles technologies, de relever des défis techniques et de transformer des idées en produits concrets et fonctionnels. Si mon profil vous intéresse, n’hésitez pas à me contacter via le formulaire de contact situé à la fin de ce portfolio.
+                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>À
+                    Propos</h2>
+                <p className={"w-full p-10 dark:bg-[#09090B]/45 bg-gray-200/45 text-lg text-center text-black dark:text-gray-300 rounded-3xl items-center justify-start py-10 px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
+                    Bonjour et bienvenue sur mon portfolio ! Je m’appelle Noah CHARRIN-BOURRAT et je vais entrer en 3ème
+                    année de développement logiciel au Campus Ynov de Toulouse, en France. Au cours de ma première et deuxième
+                    année, j’ai découvert un vif intérêt pour le développement de logiciels et d’applications mobiles, mais ma curiosité
+                    et ma passion pour l’informatique me poussent à explorer de nombreux domaines différents. J’aime
+                    réaliser des projets très variés, allant des jeux vidéo et des API aux applications web complètes.
+                    Je suis toujours impatient d’apprendre de nouvelles technologies, de relever des défis techniques et
+                    de transformer des idées en produits concrets et fonctionnels. Si mon profil vous intéresse,
+                    n’hésitez pas à me contacter via le formulaire de contact ou via les informations données à la section
+                    <a href={"#contact"} className={"text-blue-500 hover:text-blue-700"}> contact </a> de ce portfolio.
                 </p>
             </div>
+            <div className={"w-full overflow-hidden"}>
+                <h3 className={"text-3xl md:text-4xl font-bold mb-4 font-[Anybody] text-center text-black dark:text-white"}>
+                    Outils, Languages et Logiciels que j'utilise</h3>
+                <div className={"relative left-1/2 w-screen -translate-x-1/2 overflow-hidden"}>
+                    <ScrollingCarousel/>
+                </div>
+            </div>
             <div className={"flex flex-col items-center justify-center"}>
-                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Experiences Professionnelle</h2>
+                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Experiences
+                    Professionnelle</h2>
                 {carreerPath.map((val, index) =>
                     <React.Fragment key={`carrer-${index}`}>
                         {index == 0 &&
