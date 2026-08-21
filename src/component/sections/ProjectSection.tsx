@@ -17,7 +17,7 @@ export function ProjectSection() {
                           links={[{
                               icon: Globe,
                               title: "Website",
-                              path: "http://localhost:5173"
+                              path: "https://cbnoah.com"
                           }, {
                               icon: GitBranch,
                               title: "GitHub",
