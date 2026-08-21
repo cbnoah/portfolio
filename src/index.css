@@ -24,3 +24,68 @@ html, body {
     padding: 0;
     font-family: "Behance", sans-serif;
 }
+
+.carousel-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 1) 60px,
+        rgba(0, 0, 0, 1) calc(100% - 60px),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 1) 60px,
+        rgba(0, 0, 0, 1) calc(100% - 60px),
+        transparent 100%
+    );
+}
+
+.carousel-track {
+    --scroll-distance: 0px;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 1rem;
+    animation: scroll 20s linear infinite;
+    will-change: transform;
+}
+
+.carousel-marquee--reverse .carousel-track {
+    animation-direction: reverse;
+}
+
+.carousel-set {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-1 * var(--scroll-distance)), 0, 0);
+    }
+}
+
+.carousel-marquee:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.beginning-end-transparent-gradient {
+    background: linear-gradient(
+    to right,
+    transparent 20%,
+    #e5e7eb 50%,
+    #e5e7eb 70%,
+    transparent 100%
+    );
+}
