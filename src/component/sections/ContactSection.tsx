@@ -1,26 +1,26 @@
 export function ContactSection() {
     return (
         <div className={"w-full h-full flex flex-col items-center justify-center py-20 p-20"}>
-            <h2 className={"text-5xl font-bold mb-4 font-[Anybody]"}>Contact</h2>
+            <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Contact</h2>
             <div className={"w-full max-w-4xl h-full flex flex-col items-center justify-center p-8"}>
-                <p className={"text-xl text-center mb-8 font-[DINdong]"}>N'hésitez pas à me contacter pour toute
+                <p className={"text-xl md:text-xl font-normal mb-4 font-[Anybody] text-center text-black dark:text-white"}>N'hésitez pas à me contacter pour toute
                     question ou opportunité</p>
                 <form action="https://formsubmit.co/contact@cbnoah.com" method="POST" className={"flex flex-col gap-5"}>
                     <div
                         className={"dark:bg-[#09090B]/45 bg-gray-200/45 md:w-175 xl:w-200 rounded-3xl flex flex-col items-center justify-start py-10 px-8 xl:px-15 pb-10 gap-8 border border-white/30"}>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"name"} className={"jetbrains-mono"}>Votre nom</label>
+                            <label htmlFor={"name"} className={"jetbrains-mono text-black dark:text-white"}>Votre nom</label>
                             <input required={true} type={"text"} name={"name"} id={"name"} placeholder={"Foo Bar"}
                                    className={"w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}/>
                         </div>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"email"} className={"jetbrains-mono"}>Votre email</label>
+                            <label htmlFor={"email"} className={"jetbrains-mono text-black dark:text-white"}>Votre email</label>
                             <input required={true} type={"email"} name={"email"} id={"email"}
                                    placeholder={"foo.bar@mail.com"}
                                    className={"w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}/>
                         </div>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"message"} className={"jetbrains-mono"}>Votre message</label>
+                            <label htmlFor={"message"} className={"jetbrains-mono text-black dark:text-white"}>Votre message</label>
                             <textarea required={true} name={"message"} id={"message"}
                                       placeholder={"Bonjour, je voudrais vous contacter..."}
                                       className={"h-80 w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}
@@ -36,7 +36,7 @@ export function ContactSection() {
                     </button>
                 </form>
                 <div className={"flex flex-row gap-1.5 items-center justify-center"}>
-                    <p>Sinon envoyer moi un mail à
+                    <p className={"text-black dark:text-white"}>Sinon envoyer moi un mail à
                         <a href="mailto:contact@cbnoah.com"
                            className={"text-blue-500 hover:underline"}> contact@cbnoah.com </a>
                         ou envoyer moi un message sur LinkedIn
