@@ -117,7 +117,9 @@ export function ProjectComponent({
                             "dark:bg-[#09090B]/60 border border-white/30 dark:border-black/30 py-3 rounded-3xl hover:border-white dark:hover:border-black hover:bg-gray-100 " +
                             "dark:hover:bg-[#09090B]/80 hover:scale-102 transition-all duration-300 text-black dark:text-white"}
                            href={link.path}
-                           key={index}>
+                           key={index}
+                           target={"_blank"}
+                        >
                             <link.icon/>
                             {link.title}
                         </a>
