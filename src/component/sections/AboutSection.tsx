@@ -92,7 +92,7 @@ et m'a doté d'une polyvalence technique indispensable pour aborder sereinement 
                     Je suis toujours impatient d’apprendre de nouvelles technologies, de relever des défis techniques et
                     de transformer des idées en produits concrets et fonctionnels. Si mon profil vous intéresse,
                     n’hésitez pas à me contacter via le formulaire de contact ou via les informations données à la section
-                    <a href={"#contact"} className={"text-blue-500 hover:text-blue-700"}> contact </a> de ce portfolio.
+                    <a href={"#contact"} className={"text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"}> contact </a> de ce portfolio.
                 </p>
             </div>
             <div className={"w-full overflow-hidden"}>
