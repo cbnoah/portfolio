@@ -5,7 +5,7 @@ import {Languages} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
 import {ThemeToggle} from "./ThemeToggle.tsx";
 
-export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
+export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
     ({children}, ref) => {
         const contentRef = useRef<HTMLDivElement>(null);
         useImperativeHandle(ref, () => contentRef.current as HTMLDivElement)
