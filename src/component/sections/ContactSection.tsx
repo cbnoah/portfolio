@@ -39,15 +39,6 @@ export function ContactSection() {
                         Envoyer
                     </button>
                 </form>
-                <div className={"w-125 md:w-175 xl:w-200 p-10 dark:bg-[#09090B]/45 bg-gray-200/45 text-lg text-center text-black dark:text-gray-300 rounded-3xl items-center justify-start py-10 px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
-                    <p className={"text-black dark:text-white"}>Vous pouvez également me contacter par email à
-                        <a href="mailto:contact@cbnoah.com"
-                           className={"text-blue-500 hover:underline"}> contact@cbnoah.com </a>
-                        ou envoyez moi un message sur <a
-                            href="https://www.linkedin.com/in/noah-charrin-bourrat-9b3669332/"
-                            className={"text-blue-500 hover:underline"}>LinkedIn </a> je vous répondrai dans les plus brefs délais.
-                    </p>
-                </div>
             </div>
         </div>
     )
