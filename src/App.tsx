@@ -1,6 +1,6 @@
 // @ts-ignore
 import {Color4Bg} from '@color4bg/react';
-import {Scrollbar} from "./component/Scrollbar.tsx";
+import {Overlay} from "./component/Overlay.tsx";
 import {ComicButton} from "./component/ComicButton.tsx";
 import {useEffect, useState} from "react";
 import {AboutSection} from "./component/sections/AboutSection.tsx";
@@ -8,6 +8,7 @@ import {ContactSection} from "./component/sections/ContactSection.tsx";
 import {ThemeProvider} from "./component/ThemeProvider.tsx";
 import {Background} from "./component/Background.tsx";
 import {ProjectSection} from "./component/sections/ProjectSection.tsx";
+import {Footer} from "./component/Footer.tsx";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href')?.substring(1);
                 if (!targetId || !scrollEl) return;
@@ -60,7 +61,7 @@ function App() {
 
 
     return <ThemeProvider>
-        <Scrollbar ref={setScrollEl}>
+        <Overlay ref={setScrollEl}>
             <div className="relative h-screen">
                 <div
                     className={`fixed inset-0 z-1 w-screen h-screen pointer-events-none backdrop-blur-2xl transition-opacity duration-500 ${activeSection == "home" ? "opacity-0" : "opacity-100"}`}></div>
@@ -114,12 +115,10 @@ function App() {
                              className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
                         <ContactSection/>
                     </section>
-                    <footer className={"bg-gray-800 text-white py-6"}>
-                        <p className="text-center text-sm text-gray-500">&copy; 2023 My Portfolio. All rights reserved.</p>
-                    </footer>
                 </div>
+                <Footer />
             </div>
-        </Scrollbar>
+        </Overlay>
     </ThemeProvider>
 }
 
