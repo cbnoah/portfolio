@@ -6,8 +6,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    --inset-top-bar-button-shadow: inset 20px 20px 60px #bebebe,
-    inset -20px -20px 60px #ffffff;
+    --inset-top-bar-button-shadow: inset 4px 4px 10px #939393, inset -4px -4px 10px #cccccc;
+}
+
+.dark {
+    --inset-top-bar-button-shadow: inset 4px 4px 10px #434347, inset -4px -4px 10px #8f8f9e;
 }
 
 .jetbrains-mono {
