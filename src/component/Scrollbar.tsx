@@ -16,7 +16,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
         const [scrollStartPosition, setScrollStartPosition] = useState<number>(0);
         const [initialContentScrollTop, setInitialContentScrollTop] = useState<number>(0);
         const [smallTopBar, setSmallTopBar] = useState<boolean>(false);
-        const activeSection = useActiveSection(contentRef.current as HTMLDivElement, ["home", "about", "projects", "contact"]);
+        const activeSection = useActiveSection(contentRef, ["home", "about", "projects", "contact"]);
 
         const [thumbHeight, setthumbHeight] = useState(150);
 
@@ -52,7 +52,6 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
             const {clientHeight: trackHeight} = scrollTrackRef.current;
 
             let newTop = (contentTop / contentHeight) * trackHeight;
-            newTop = Math.min(newTop, trackHeight - thumbHeight);
 
             const thumb = scrollThumbRef.current;
 
@@ -133,29 +132,38 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
         }
 
         useEffect(() => {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+            const handleAnchorClick = (e: MouseEvent) => {
+                const anchor = (e.target as HTMLElement).closest('a[href^="#"]');
+                if (!anchor || !contentRef.current) return;
 
-                    // @ts-ignore
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
 
-                    if (targetElement && contentRef.current) {
-                        // Get the position relative to the scroll container
-                        const elementRect = targetElement.getBoundingClientRect();
-                        const containerRect = contentRef.current.getBoundingClientRect();
+                const targetElement = document.querySelector(href);
+                if (!targetElement) return;
 
-                        // Calculate position within the container
-                        const relativeTop = contentRef.current.scrollTop + (elementRect.top - containerRect.top);
+                e.preventDefault();
 
-                        contentRef.current.scrollTo({
-                            top: relativeTop - 250,
-                            behavior: 'smooth'
-                        });
-                    }
+                if (href === '#home') {
+                    contentRef.current.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+
+                const elementRect = targetElement.getBoundingClientRect();
+                const containerRect = contentRef.current.getBoundingClientRect();
+                const relativeTop = contentRef.current.scrollTop + (elementRect.top - containerRect.top);
+
+                contentRef.current.scrollTo({
+                    top: Math.max(0, relativeTop - 120),
+                    behavior: 'smooth'
                 });
-            });
+            };
+
+            document.addEventListener('click', handleAnchorClick);
+            return () => document.removeEventListener('click', handleAnchorClick);
         }, []);
 
         return (
@@ -173,13 +181,13 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
                             <div
                                 className={`w-full h-full flex flex-row justify-between items-center ${smallTopBar ? "px-0" : "md:px-15 2xl:px-75"}`}>
                                 <a href={"#home"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-500 ${activeSection == "home" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] dark:shadow-[#3f3f3f] font-medium" : "font-light"}`}>Accueil</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "home" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Accueil</a>
                                 <a href={"#about"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody]  p-4 xl:p-5 rounded-3xl transition-all duration-500 ${activeSection == "about" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] dark:shadow-[#3f3f3f] font-medium" : "font-light"}`}>Parcours</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "about" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Parcours</a>
                                 <a href={"#projects"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-500 ${activeSection == "projects" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] dark:shadow-[#3f3f3f] font-medium" : "font-light"}`}>Projects</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "projects" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Projects</a>
                                 <a href={"#contact"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-500 ${activeSection == "contact" ? "shadow-(--inset-top-bar-button-shadow) shadow-[#e0e0e0] dark:shadow-[#3f3f3f] font-medium" : "font-light"}`}>Contact</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "contact" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Contact</a>
                             </div>
                             <div className={"h-full flex flex-row justify-center items-center gap-6 xl:gap-7"}>
                                 <div className={"h-full w-0.5 backdrop-invert-100"}></div>
@@ -191,7 +199,7 @@ export const Scrollbar = forwardRef<HTMLDivElement, { children: React.ReactNode;
                         </div>
                     </div>
                     <div
-                        className={"absolute top-30 right-0 h-full w-12.5 px-4 pt-4 pb-40  place-items-center pointer-events-none z-20"}>
+                        className={"absolute top-30 right-0 h-full w-12.5 px-4 pt-4 pb-40 place-items-center pointer-events-none z-20"}>
                         <div aria-controls={"custom-scrollbars-content"}
                              role={"scrollbar"}
                              className={"h-full relative w-4 pointer-events-auto flex justify-center"}>
