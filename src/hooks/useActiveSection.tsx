@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type RefObject } from "react";
 
 export function useActiveSection(
-    root: HTMLElement | null,
+    rootRef: RefObject<HTMLElement | null> | HTMLElement | null,
     sectionIds: string[]
 ) {
     const [activeSection, setActiveSection] = useState<string>(sectionIds[0]);
 
     useEffect(() => {
+        const root = rootRef && "current" in rootRef ? rootRef.current : rootRef;
         if (!root) return;
 
         const observer = new IntersectionObserver(
             (entries) => {
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-                if (visible.length > 0) {
-                    setActiveSection(visible[0].target.id);
-                }
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
             },
             {
                 root,
-                threshold: 0.2,
+                rootMargin: "-20% 0px -70% 0px",
+                threshold: 0,
             }
         );
 
@@ -31,7 +31,7 @@ export function useActiveSection(
         });
 
         return () => observer.disconnect();
-    }, [root, sectionIds]);
+    }, [rootRef]);
 
     return activeSection;
 }
