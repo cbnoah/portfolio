@@ -45,7 +45,7 @@ export function ProjectSection() {
                           projectImagePath={"src/assets/icons/amicooked.png"}
         />,
         <ProjectComponent title={"Ymmo (API)"} finished={true} group={true}
-                          description={"Cette API est le backend REST du projet Ymmo, développé avec Spring Boot (Java 26) pour gérer les utilisateurs, les propriétés, les transactions et les favoris. L'ensemble s'articule autour d'une architecture conteneurisée via Docker Compose, intégrant une base de données PostgreSQL préconfigurée via un script SQL et un système de fichiers compatible S3 (RustFS) pour le stockage d'objets. Sécurisée par des tokens JWT et facilement explorable grâce à son interface Swagger."}
+                          description={"Cette API est le backend REST du projet Ymmo (un projet visant à installer et à configurer de nombreuses solutions web et infra pour un groupe d'agence immobilière à travers la France), développé avec Spring Boot (Java 26) pour gérer les utilisateurs, les propriétés, les transactions et les favoris. L'ensemble s'articule autour d'une architecture conteneurisée via Docker Compose, intégrant une base de données PostgreSQL préconfigurée via un script SQL et un système de fichiers compatible S3 (RustFS) pour le stockage d'objets. Sécurisée par des tokens JWT et facilement explorable grâce à son interface Swagger."}
                           tags={[{
                               color: "#FBAF63",
                               title: "École",
@@ -115,7 +115,7 @@ export function ProjectSection() {
                               path: "https://github.com/cbnoah/ChatPerlipopette"
                           }]}
                           projectImagePath={"src/assets/icons/chatperlipopette.png"}/>,
-        <ProjectComponent title={"Groupie Tracker"} finished={true} group={false}
+        <ProjectComponent title={"Groupie Tracker"} finished={true} group={true}
                           description={"Une application web utilisant un serveur HTTP Golang et Go Templates pour récupérer des informations sur des groupes de musique via une API et les afficher sur un modèle de page d'artiste."}
                           tags={[{
                               color: "#FBAF63",
