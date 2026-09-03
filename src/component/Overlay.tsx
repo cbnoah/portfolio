@@ -169,7 +169,7 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
         return (
             <div className={"relative h-full w-full overflow-hidden"}>
                 <div id={"custom-scrollbars-content"}
-                     className={"overflow-auto scrollbar-none h-full w-full py-0 pr-12.5 content"}
+                     className={"overflow-auto scrollbar-none h-full w-full py-0 md:pr-12.5 content"}
                      ref={contentRef}>
                     {children}
                 </div>
