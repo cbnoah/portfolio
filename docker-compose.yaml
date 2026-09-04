@@ -4,4 +4,4 @@ services:
     container_name: portfolio
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "80:8080"

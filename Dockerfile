@@ -1,23 +1,27 @@
+# Étape 1 : Build de l'application React / Vite
 FROM node:24-alpine AS builder
 
-WORKDIR /app
+WORKDIR /home/node/app
 
-COPY package*.json ./
+RUN chown -R node:node /home/node/app
+
+USER node
+
+COPY --chown=node:node package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY --chown=node:node . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:alpine
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx --from=builder /home/node/app/dist /usr/share/nginx/html
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 8080
 
-EXPOSE 80
+USER nginx
 
 CMD ["nginx", "-g", "daemon off;"]
-
-USER nobody
