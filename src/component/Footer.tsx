@@ -86,7 +86,7 @@ export function Footer() {
             <div className="w-full dark:bg-[#09090B]/45 bg-gray-200/45 rounded-3xl flex flex-col gap-8 py-10 px-8 md:px-14 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300">
                 {/* Header: Brand name & Back to Top button */}
                 <div className="w-full flex flex-col justify-center items-center gap-4">
-                    <span className={"text-2xl"}>Vous êtes arrivés à la fin !</span>
+                    <span className={"text-2xl dark:text-white text-black"}>Vous êtes arrivés à la fin !</span>
                     <button
                         onClick={scrollToTop}
                         aria-label="Retour en haut"
@@ -126,7 +126,7 @@ export function Footer() {
                     <p className="text-center sm:text-left font-medium">
                         © 2026 Noah CHARRIN--BOURRAT, Tous droits réservés.
                     </p>
-                    <p className="text-center sm:text-right text-gray-500 dark:text-gray-400">
+                    <p className="text-center sm:text-right text-gray-700 dark:text-gray-300">
                         Portfolio v2, Conçu avec React, TypeScript & Tailwind CSS
                     </p>
                 </div>
