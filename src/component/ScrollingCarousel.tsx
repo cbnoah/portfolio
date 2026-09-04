@@ -19,7 +19,7 @@ function carouselElements(elements: CarouselElement[]) {
                  className={"w-55 h-20 shrink-0 cursor-pointer dark:bg-[#09090B]/45 bg-gray-200/45 flex flex-row items-center " +
                      "justify-start p-3 rounded-3xl gap-3 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black " +
                      "hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
-                <img src={lang.imagePath} alt={lang.name}
+                <img src={lang.imagePath} alt={lang.name} loading="lazy"
                      className={"w-16 h-16 border bg-white dark:bg-black border-white/30 dark:border-dark/30 rounded-2xl object-contain"}/>
                 <p className={"mt-2 text-center text-black dark:text-gray-200 text-lg font-medium jetbrains-mono"}>{lang.name}</p>
             </div>
@@ -82,7 +82,7 @@ export function ScrollingCarousel() {
     const programmingLanguages: CarouselElement[] = [
         {
             name: "Golang",
-            imagePath: "https://grafikart.fr/uploads/icons/golang.svg"
+            imagePath: "https://liora.io/app/uploads/2024/12/golang.webp"
         },
         {
             name: "Flutter",
@@ -102,7 +102,7 @@ export function ScrollingCarousel() {
         },
         {
             name: "Python",
-            imagePath: "https://ent2d.ac-bordeaux.fr/disciplines/mathematiques/wp-content/uploads/sites/3/2017/02/python-logo.jpg"
+            imagePath: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1280px-Python-logo-notext.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
         },
         {
             name: "SQL",
@@ -116,15 +116,15 @@ export function ScrollingCarousel() {
     const misellaneousTools: CarouselElement[] = [
         {
             name: "Docker",
-            imagePath: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF-fbtr9OhyGrIqc1O4x2RZmYKQK5jtwsR5OS6WVx-og&s=10"
+            imagePath: "https://cours.cocadmin.com/content-assets/public/eyJhbGciOiJIUzI1NiJ9.eyJvYmplY3Rfa2V5IjoiUDRMTWtRYkNvWWRUNk5pRThaakVURWJ3IiwiZG9tYWluIjoiY291cnMuY29jYWRtaW4uY29tIn0.HogF8S6jOTzXpQgkUT95wShOUHYR5Z_iC48H1T41mOI"
         },
         {
             name: "Linux",
-            imagePath: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1El38iW3yk3YIvYakO7ZJMcPc_4l_OTLyQBDflIpzJg&s=10"
+            imagePath: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1280px-Tux.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
         },
         {
             name: "S3",
-            imagePath: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTEV3vMucx46LGfBAQmzrypzoVgKP_3qlx8nRMFgf-mg&s=10"
+            imagePath: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original"
         },
         {
             name:"Suite JetBrains",
