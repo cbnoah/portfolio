@@ -57,7 +57,8 @@ export function ProjectComponent({
                                 className={"w-full h-full flex text-2xl text-center justify-center items-center text-black dark:text-white"}>Aucune Image</span> :
                             <img src={projectImagePath}
                                  alt="Project Image"
-                                 className={"w-full h-full rounded-2xl"}/>
+                                 className={"w-full h-full rounded-2xl"}
+                                 loading={"lazy"}/>
                         }
                     </div>
                     <div className={"flex flex-col justify-between items-start"}>
