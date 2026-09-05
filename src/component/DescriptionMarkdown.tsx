@@ -3,9 +3,9 @@ import Markdown from "react-markdown";
 export function DescriptionMarkdown({description}: { description: string }) {
     return <Markdown
         components={{
-            h1: ({children}) => <h1 className="text-2xl font-bold mb-4 mt-2 text-black dark:text-white">{children}</h1>,
-            h2: ({children}) => <h2 className="text-xl font-bold mb-3 mt-2 text-black dark:text-white">{children}</h2>,
-            h3: ({children}) => <h3 className="text-lg font-bold mb-2 mt-2 text-black dark:text-white">{children}</h3>,
+            h1: ({children}) => <h1 className="text-xl md:text-3xl font-bold mb-4 mt-2 text-black dark:text-white">{children}</h1>,
+            h2: ({children}) => <h2 className="text-lg md:text-xl font-bold mb-3 mt-2 text-black dark:text-white">{children}</h2>,
+            h3: ({children}) => <h3 className="text-md md:text-lg font-bold mb-2 mt-2 text-black dark:text-white">{children}</h3>,
             p: ({children}) => <p className="mb-4 leading-relaxed text-black dark:text-slate-100">{children}</p>,
             ul: ({children}) => <ul className="list-disc mb-4 space-y-2 text-black dark:text-slate-100">{children}</ul>,
             ol: ({children}) => <ol
