@@ -51,7 +51,7 @@ export function Footer() {
     const socialLinks: SocialLink[] = [
         {
             title: "GitHub",
-            path: "https://github.com/cbnoah",
+            path: "https://github.cbnoah.com",
             icon: GithubIcon,
         },
         {
