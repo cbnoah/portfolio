@@ -138,7 +138,7 @@ export function ProjectSection() {
     return (
         <div className={"w-full min-h-full flex flex-col items-center justify-start xl:px-80 py-20 gap-20"}>
             <div className={"flex flex-col items-center justify-center gap-5"}>
-                <h2 className={"text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Projets</h2>
+                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Projets</h2>
                 <div className={"flex flex-col gap-10"}>
                     {
                         projects.map(project => (project))
