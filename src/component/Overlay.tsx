@@ -4,6 +4,7 @@ import "../index.css"
 import {Languages} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
 import {ThemeToggle} from "./ThemeToggle.tsx";
+import {SmallOverlay} from "./SmallOverlay.tsx";
 
 export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
     ({children}, ref) => {
@@ -174,9 +175,8 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                     {children}
                 </div>
                 <div className={"flex flex-col items-center justify-center"}>
-                    <div
-                        className={`absolute h-25 bg-gray-50/40 dark:bg-[#2a2b2b]/40 z-100 transition-all duration-200 flex flex-row
-                    ${smallTopBar ? "w-4xl xl:w-6xl top-10 rounded-3xl py-6 px-10 drop-shadow-xl drop-shadow-black/30 backdrop-blur-2xl" : "w-full rounded-b-3xl top-0 right-0 py-4 px-1.5 xl:px-15 backdrop-blur-xl drop-shadow-black/30"}`}>
+                    <div className={`hidden absolute h-25 bg-gray-50/40 dark:bg-[#2a2b2b]/40 z-100 transition-all duration-200 sm:flex flex-row
+                    ${smallTopBar ? "xl:w-6xl top-10 rounded-3xl py-6 px-10 drop-shadow-xl drop-shadow-black/30 backdrop-blur-2xl" : "w-full rounded-b-3xl top-0 right-0 py-4 px-1.5 xl:px-15 backdrop-blur-xl drop-shadow-black/30"}`}>
                         <div className={"h-full min-w-full flex flex-row justify-between items-center gap-5"}>
                             <div
                                 className={`w-full h-full flex flex-row justify-between items-center ${smallTopBar ? "px-0" : "md:px-15 2xl:px-75"}`}>
@@ -190,14 +190,19 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                                    className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "contact" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Contact</a>
                             </div>
                             <div className={"h-full flex flex-row justify-center items-center gap-6 xl:gap-7"}>
-                                <div className={"h-full w-0.5 backdrop-invert-100"}></div>
-                                <div className={"w-full xl:w-auto h-full flex md:flex-row flex-col justify-around xl:justify-center items-center md:gap-5 pr-3 xl:pr-0 text-black dark:text-gray-200"}>
+                                <div className={"self-stretch my-2 flex flex-col"}>
+                                    <div className={"h-full w-px bg-linear-to-b from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
+                                    <div className={"h-full w-px bg-linear-to-t from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
+                                </div>
+                                <div
+                                    className={"w-full xl:w-auto h-full flex md:flex-row flex-col justify-around xl:justify-center items-center md:gap-5 pr-3 xl:pr-0 text-black dark:text-gray-200"}>
                                     <Languages size={30} strokeWidth={1.5}/>
                                     <ThemeToggle/>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <SmallOverlay activeSection={activeSection}/>
                     <div
                         className={"absolute top-30 right-0 h-full w-12.5 px-4 pt-4 pb-40 place-items-center pointer-events-none z-20"}>
                         <div aria-controls={"custom-scrollbars-content"}
@@ -208,13 +213,14 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                                 ref={scrollTrackRef}
                                 style={{cursor: isDragging ? "grabbing" : undefined}}
                                 onClick={handleTrackClick}></div>
-                            <div className={"hidden md:grid absolute w-full bg-[#262626] dark:bg-[#bebebe] rounded-3xl transition-colors"}
-                                 ref={scrollThumbRef}
-                                 onMouseDown={handleThumbMousedown}
-                                 style={{
-                                     height: `${thumbHeight}px`,
-                                     cursor: isDragging ? "grabbing" : 'grab'
-                                 }}></div>
+                            <div
+                                className={"hidden md:grid absolute w-full bg-[#262626] dark:bg-[#bebebe] rounded-3xl transition-colors"}
+                                ref={scrollThumbRef}
+                                onMouseDown={handleThumbMousedown}
+                                style={{
+                                    height: `${thumbHeight}px`,
+                                    cursor: isDragging ? "grabbing" : 'grab'
+                                }}></div>
                         </div>
                     </div>
                 </div>
