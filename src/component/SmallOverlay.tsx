@@ -26,7 +26,7 @@ export function SmallOverlay({activeSection}: SmallOverlayProps) {
 
     const navLinks = [
         {id: "home", href: "#home", label: "Accueil"},
-        {id: "about", href: "#about", label: "Parcours"},
+        {id: "about", href: "#about", label: "A Propos"},
         {id: "projects", href: "#projects", label: "Projets"},
         {id: "contact", href: "#contact", label: "Contact"},
     ];

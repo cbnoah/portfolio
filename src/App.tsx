@@ -81,7 +81,7 @@ function App() {
                         {/*name for big screens*/}
                         <div className="2xl:flex-row flex-col justify-start items-center 2xl:flex">
                             <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-[6.3rem] hover:font-black transition-all duration-300">CHARRIN</h1>
-                            <div className={"flex flex-row"}>
+                            <div className={"hidden 2xl:flex flex-row"}>
                                 <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
                                 <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
                             </div>

@@ -183,7 +183,7 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                                 <a href={"#home"}
                                    className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "home" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Accueil</a>
                                 <a href={"#about"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "about" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Parcours</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "about" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>A Propos</a>
                                 <a href={"#projects"}
                                    className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "projects" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Projects</a>
                                 <a href={"#contact"}
