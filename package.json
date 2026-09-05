@@ -12,7 +12,9 @@
   "dependencies": {
     "@color4bg/react": "^0.1.2",
     "@tailwindcss/vite": "^4.3.2",
+    "lucide": "^1.41.0",
     "lucide-react": "^1.24.0",
+    "morphicons": "^1.7.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-markdown": "^10.1.0",
