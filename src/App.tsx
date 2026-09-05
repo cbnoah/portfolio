@@ -93,7 +93,7 @@ function App() {
                                 informatique</h2>
                             <div className={"xl:w-auto w-full flex flex-row xl:justify-center items-center gap-5"}>
                                 <ComicButton text="CV"
-                                             link="https://drive.google.com/file/d/1rTfKRrt-SmrfGUq-6-Bnib_ynqFG4z5g/view?usp=sharing"/>
+                                             link="https://cv.cbnoah.com"/>
                                 <ComicButton text="GitHub" link="https://github.cbnoah.com"/>
                             </div>
                         </div>
