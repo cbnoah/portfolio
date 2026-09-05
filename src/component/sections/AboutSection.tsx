@@ -95,10 +95,10 @@ Bien que le développement web ne constitue pas nécessairement ma spécialité 
 
     return (
         <div className={"w-full min-h-full flex flex-col items-center justify-start xl:px-80 py-20 gap-20"}>
-            <div>
+            <div className={"flex flex-col items-center justify-start"}>
                 <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>À
                     Propos</h2>
-                <p className={"w-full p-10 dark:bg-[#09090B]/45 bg-gray-200/45 text-lg text-center text-black dark:text-gray-300 rounded-3xl items-center justify-start py-10 px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
+                <p className={"w-[93%] md:w-[95%] xl:w-full dark:bg-[#09090B]/45 bg-gray-200/45 text-md sm:text-lg text-center text-black dark:text-gray-300 rounded-3xl items-center justify-start py-6 px-8 sm:py-10 sm:px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300"}>
                     Bonjour et bienvenue sur mon portfolio ! Je m’appelle Noah CHARRIN-BOURRAT et je vais entrer en 3ème
                     année de développement logiciel au Campus Ynov de Toulouse, en France. Au cours de ma première et
                     deuxième
@@ -123,7 +123,7 @@ Bien que le développement web ne constitue pas nécessairement ma spécialité 
                 </div>
             </div>
             <div className={"flex flex-col items-center justify-center"}>
-                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Experiences
+                <h2 className={"text-4xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Experiences
                     Professionnelle</h2>
                 {carreerPath.map((val, index) =>
                     <React.Fragment key={`carrer-${index}`}>
@@ -141,8 +141,8 @@ Bien que le développement web ne constitue pas nécessairement ma spécialité 
                 )}
             </div>
 
-            <div className={"flex flex-col items-center justify-center"}>
-                <h2 className={"text-6xl font-black mb-4 font-[Anybody] text-black dark:text-white"}>Formations</h2>
+            <div className={"flex flex-col items-center justify-center px-5 xl:px-0"}>
+                <h2 className={"text-4xl md:text-6xl font-black mb-4 font-[Anybody] text-black dark:text-white"}>Formations</h2>
                 {educationPath.map((val, index) =>
                     <React.Fragment key={`education-${index}`}>
                         {index == 0 &&
