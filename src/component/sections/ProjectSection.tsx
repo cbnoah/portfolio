@@ -1,5 +1,8 @@
 import {ProjectComponent} from "../ProjectComponent.tsx";
 import {BuildingIcon, Cloud, GitBranch, Globe, School, Smartphone} from "lucide-react";
+import amicoockedIcon from "../../assets/icons/amicooked.png";
+import vinodomiaIcon from "../../assets/icons/vinodomia.webp";
+import chatperlipopetteIcon from "../../assets/icons/chatperlipopette.png";
 
 export function ProjectSection() {
     const projects = [
@@ -42,7 +45,7 @@ export function ProjectSection() {
                               title: "GitHub",
                               path: "https://github.com/cbnoah/am_i_cooked"
                           }]}
-                          projectImagePath={"src/assets/icons/amicooked.png"}
+                          projectImagePath={amicoockedIcon}
         />,
         <ProjectComponent title={"Ymmo (API)"} finished={true} group={true}
                           description={"Cette API est le backend REST du projet Ymmo (un projet visant à installer et à configurer de nombreuses solutions web et infra pour un groupe d'agence immobilière à travers la France), développé avec Spring Boot (Java 26) pour gérer les utilisateurs, les propriétés, les transactions et les favoris. L'ensemble s'articule autour d'une architecture conteneurisée via Docker Compose, intégrant une base de données PostgreSQL préconfigurée via un script SQL et un système de fichiers compatible S3 (RustFS) pour le stockage d'objets. Sécurisée par des tokens JWT et facilement explorable grâce à son interface Swagger."}
@@ -75,7 +78,7 @@ export function ProjectSection() {
                               title: "Web",
                               icon: Globe
                           }]}
-                          projectImagePath={"src/assets/icons/vinodomia.webp"}/>,
+                          projectImagePath={vinodomiaIcon}/>,
         <ProjectComponent title={"PictoFlutterChat"} finished={false} group={false}
                           description={"Une réinterprétation de l'application PictoChat DS de Nintendo pour téléphones portables."}
                           tags={[
@@ -114,7 +117,7 @@ export function ProjectSection() {
                               title: "GitHub",
                               path: "https://github.com/cbnoah/ChatPerlipopette"
                           }]}
-                          projectImagePath={"src/assets/icons/chatperlipopette.png"}/>,
+                          projectImagePath={chatperlipopetteIcon}/>,
         <ProjectComponent title={"Groupie Tracker"} finished={true} group={true}
                           description={"Une application web utilisant un serveur HTTP Golang et Go Templates pour récupérer des informations sur des groupes de musique via une API et les afficher sur un modèle de page d'artiste."}
                           tags={[{
