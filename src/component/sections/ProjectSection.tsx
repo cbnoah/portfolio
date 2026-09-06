@@ -1,8 +1,9 @@
 import {ProjectComponent} from "../ProjectComponent.tsx";
 import {BuildingIcon, Cloud, GitBranch, Globe, School, Smartphone} from "lucide-react";
-import amicoockedIcon from "../../assets/icons/amicooked.png";
-import vinodomiaIcon from "../../assets/icons/vinodomia.webp";
-import chatperlipopetteIcon from "../../assets/icons/chatperlipopette.png";
+import amicoockedIcon from "../../assets/icons/projectsIcons/amicooked.png";
+import vinodomiaIcon from "../../assets/icons/projectsIcons/vinodomia.webp";
+import chatperlipopetteIcon from "../../assets/icons/projectsIcons/chatperlipopette.png";
+import groupietracker from "../../assets/icons/projectsIcons/groupietracker.png";
 
 export function ProjectSection() {
     const projects = [
@@ -134,7 +135,7 @@ export function ProjectSection() {
                               title: "GitHub",
                               path: "https://github.com/cbnoah/GroupieTracker"
                           }]}
-                          projectImagePath={"https://github.com/cbnoah/GroupieTracker/raw/master/static/images/groupie_tracker_logo_petit.png"}/>
+                          projectImagePath={groupietracker}/>
     ]
 
 
