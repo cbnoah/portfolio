@@ -4,8 +4,11 @@ import amicoockedIcon from "../../assets/icons/projectsIcons/amicooked.png";
 import vinodomiaIcon from "../../assets/icons/projectsIcons/vinodomia.webp";
 import chatperlipopetteIcon from "../../assets/icons/projectsIcons/chatperlipopette.png";
 import groupietracker from "../../assets/icons/projectsIcons/groupietracker.png";
+import {useTranslation} from "react-i18next";
 
 export function ProjectSection() {
+    const {t} = useTranslation();
+
     const projects = [
         <ProjectComponent title={"Portfolio"} finished={true} group={false}
                           description={"Ce projet est le portfolio que vous êtes en train de consulter en ce moment. Il s'agit de la 2ème version de ce dernier."}
@@ -142,7 +145,7 @@ export function ProjectSection() {
     return (
         <div className={"w-full min-h-full flex flex-col items-center justify-start xl:px-80 py-20 gap-20"}>
             <div className={"flex flex-col items-center justify-center gap-5"}>
-                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Projets</h2>
+                <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>{t("projects")}</h2>
                 <div className={"flex flex-col gap-10"}>
                     {
                         projects.map(project => (project))

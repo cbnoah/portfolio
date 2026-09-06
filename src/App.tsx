@@ -9,11 +9,14 @@ import {ThemeProvider} from "./component/ThemeProvider.tsx";
 import {Background} from "./component/Background.tsx";
 import {ProjectSection} from "./component/sections/ProjectSection.tsx";
 import {Footer} from "./component/Footer.tsx";
+import {useTranslation} from "react-i18next";
 
 
 function App() {
     const [scrollEl, setScrollEl] = useState<HTMLDivElement | null>(null);
     const [activeSection, setActiveSection] = useState("home");
+
+    const {t} = useTranslation();
 
     useEffect(() => {
         if (!scrollEl) return;
@@ -60,61 +63,64 @@ function App() {
     }, [scrollEl]);
 
 
-    return <ThemeProvider>
-        <Overlay ref={setScrollEl}>
-            <div className="relative h-screen">
-                <div
-                    className={`fixed inset-0 z-1 w-screen h-screen pointer-events-none backdrop-blur-2xl transition-opacity duration-500 ${activeSection == "home" ? "opacity-0" : "opacity-100"}`}></div>
-                <div className="fixed inset-0 z-0 w-screen h-screen pointer-events-none">
-                    <Background/>
-                </div>
-                <div className={"flex flex-col gap-70 md:px-0"}>
+    return (
+        <ThemeProvider>
+            <Overlay ref={setScrollEl}>
+                <div className="relative h-screen">
                     <div
-                        className="w-full h-screen z-10 relative cursor-default select-none px-5 pt-5 pb-20 xl:p-10 flex flex-col justify-end items-start gap-4"
-                        id={"home"}>
-                        <div className={"flex flex-row"}>
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">N</h1>
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">o</h1>
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">a</h1>
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">h</h1>
-                        </div>
-                        {/*name for big screens*/}
-                        <div className="2xl:flex-row flex-col justify-start items-center 2xl:flex">
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-[6.3rem] hover:font-black transition-all duration-300">CHARRIN</h1>
-                            <div className={"hidden 2xl:flex flex-row"}>
-                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
-                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
-                            </div>
-                            <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-[6.3rem] hover:font-black transition-all duration-300">BOURRAT</h1>
-                        </div>
-                        <div
-                            className={"w-full h-50 2xl:h-30 flex 2xl:flex-row flex-col 2xl:justify-between 2xl:items-center items-start gap-4"}>
-                            <h2 className="text-black dark:text-gray-100 font-[DINdong] font-black text-4xl sm:text-5xl md:text-6xl xl:text-[4rem] pt-5 xl:pt-0">Etudiant en
-                                informatique</h2>
-                            <div className={"xl:w-auto w-full flex flex-row xl:justify-center items-center gap-5"}>
-                                <ComicButton text="CV"
-                                             link="https://cv.cbnoah.com"/>
-                                <ComicButton text="GitHub" link="https://github.cbnoah.com"/>
-                            </div>
-                        </div>
+                        className={`fixed inset-0 z-1 w-screen h-screen pointer-events-none backdrop-blur-2xl transition-opacity duration-500 ${activeSection == "home" ? "opacity-0" : "opacity-100"}`}></div>
+                    <div className="fixed inset-0 z-0 w-screen h-screen pointer-events-none">
+                        <Background/>
                     </div>
-                    <section id={"about"}
-                             className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
-                        <AboutSection/>
-                    </section>
-                    <section id={"projects"}
-                             className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
-                        <ProjectSection/>
-                    </section>
-                    <section id={"contact"}
-                             className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
-                        <ContactSection/>
-                    </section>
+                    <div className={"flex flex-col gap-70 md:px-0"}>
+                        <div
+                            className="w-full h-screen z-10 relative cursor-default select-none px-5 pt-5 pb-20 xl:p-10 flex flex-col justify-end items-start gap-4"
+                            id={"home"}>
+                            <div className={"flex flex-row"}>
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">N</h1>
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">o</h1>
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">a</h1>
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-9xl xl:text-9xl hover:font-black transition-all">h</h1>
+                            </div>
+                            {/*name for big screens*/}
+                            <div className="2xl:flex-row flex-col justify-start items-center 2xl:flex">
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-[6.3rem] hover:font-black transition-all duration-300">CHARRIN</h1>
+                                <div className={"hidden 2xl:flex flex-row"}>
+                                    <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
+                                    <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-6xl md:text-9xl xl:text-9xl hover:font-black transition-all">-</h1>
+                                </div>
+                                <h1 className="text-black dark:text-gray-100 font-[Panchang-Variable] font-semibold text-5xl sm:text-7xl md:text-8xl xl:text-[6.3rem] hover:font-black transition-all duration-300">BOURRAT</h1>
+                            </div>
+                            <div
+                                className={"w-full h-50 2xl:h-30 flex 2xl:flex-row flex-col 2xl:justify-between 2xl:items-center items-start gap-4"}>
+                                <h2 className="text-black dark:text-gray-100 font-[DINdong] font-black text-4xl sm:text-5xl md:text-6xl xl:text-[4rem] pt-5 xl:pt-0">
+                                    {t("student")}
+                                </h2>
+                                <div className={"xl:w-auto w-full flex flex-row xl:justify-center items-center gap-5"}>
+                                    <ComicButton text="CV"
+                                                 link="https://cv.cbnoah.com"/>
+                                    <ComicButton text="GitHub" link="https://github.cbnoah.com"/>
+                                </div>
+                            </div>
+                        </div>
+                        <section id={"about"}
+                                 className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
+                            <AboutSection/>
+                        </section>
+                        <section id={"projects"}
+                                 className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
+                            <ProjectSection/>
+                        </section>
+                        <section id={"contact"}
+                                 className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
+                            <ContactSection/>
+                        </section>
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer />
-            </div>
-        </Overlay>
-    </ThemeProvider>
+            </Overlay>
+        </ThemeProvider>
+    );
 }
 
 export default App;

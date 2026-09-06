@@ -1,32 +1,31 @@
+import {useTranslation} from "react-i18next";
+
 export function ContactSection() {
+    const {t} = useTranslation()
+
     return (
         <div className={"w-full h-full flex flex-col items-center justify-center py-20 p-20"}>
-            <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>Contact</h2>
+            <h2 className={"text-5xl md:text-6xl font-black mb-4 font-[Anybody] text-center text-black dark:text-white"}>{t("contact")}</h2>
             <div className={"w-full max-w-4xl h-full flex flex-col items-center justify-center p-8 gap-4"}>
-                <p className={"text-lg md:text-xl font-normal mb-4 font-[Anybody] text-center text-black dark:text-white"}>N'hésitez
-                    pas à me contacter pour toute
-                    question ou opportunité</p>
+                <p className={"text-lg md:text-xl font-normal mb-4 font-[Anybody] text-center text-black dark:text-white"}>{t("contactSubTitle")}</p>
                 <form action="https://formsubmit.co/contact@cbnoah.com" method="POST" className={"flex flex-col gap-5"}>
                     <div
                         className={"dark:bg-[#09090B]/45 bg-gray-200/45 w-85 sm:w-140 md:w-175 xl:w-200 rounded-3xl flex flex-col items-center justify-start py-10 px-8 xl:px-15 pb-10 gap-8 border border-white/30"}>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"name"} className={"jetbrains-mono text-black dark:text-white"}>Votre
-                                nom</label>
+                            <label htmlFor={"name"} className={"jetbrains-mono text-black dark:text-white"}>{t("yourName")}</label>
                             <input required={true} type={"text"} name={"name"} id={"name"} placeholder={"Foo Bar"}
                                    className={"w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}/>
                         </div>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"email"} className={"jetbrains-mono text-black dark:text-white"}>Votre
-                                email</label>
+                            <label htmlFor={"email"} className={"jetbrains-mono text-black dark:text-white"}>{t("yourEmail")}</label>
                             <input required={true} type={"email"} name={"email"} id={"email"}
                                    placeholder={"foo.bar@mail.com"}
                                    className={"w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}/>
                         </div>
                         <div className={"flex flex-col w-full"}>
-                            <label htmlFor={"message"} className={"jetbrains-mono text-black dark:text-white"}>Votre
-                                message</label>
+                            <label htmlFor={"message"} className={"jetbrains-mono text-black dark:text-white"}>{t("yourMessage")}</label>
                             <textarea required={true} name={"message"} id={"message"}
-                                      placeholder={"Bonjour, je voudrais vous contacter..."}
+                                      placeholder={t("yourMessagePlaceholder")}
                                       className={"h-80 w-full jetbrains-mono bg-gray-200/90 dark:bg-[#3d3e3f] text-black placeholder:text-gray-500 dark:placeholder:text-gray-400 border border-gray-300 dark:border-[#313135] focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-lg hover:border-white dark:hover:border-black transition-all duration-300"}
                                       rows={5}/>
                         </div>
@@ -36,7 +35,7 @@ export function ContactSection() {
                             "dark:bg-[#09090B]/60 border border-white/30 py-3 rounded-3xl hover:border-white hover:bg-gray-100 hover:scale-102 " +
                             "dark:hover:bg-[#09090B] transition-all duration-300 text-black dark:text-white"}
                         type={"submit"}>
-                        Envoyer
+                        {t("send")}
                     </button>
                 </form>
             </div>

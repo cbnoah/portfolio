@@ -13,6 +13,7 @@ import typescriptIcon from "../assets/icons/otherIcons/typescript.svg"
 import jetbrainsIcon from "../assets/icons/otherIcons/jetbrains.png"
 import s3Icon from "../assets/icons/otherIcons/s3.svg"
 import linuxIcon from "../assets/icons/otherIcons/linux.webp"
+import {useTranslation} from "react-i18next";
 
 type CarouselElement = {
     name: string,
@@ -92,6 +93,8 @@ function MarqueeTrack({ items, reverse = false, duration }: MarqueeTrackProps) {
 }
 
 export function ScrollingCarousel() {
+    const {t} = useTranslation();
+
     const programmingLanguages: CarouselElement[] = [
         {
             name: "Golang",
@@ -140,7 +143,7 @@ export function ScrollingCarousel() {
             imagePath: s3Icon
         },
         {
-            name:"Suite JetBrains",
+            name: t("jetbrains"),
             imagePath: jetbrainsIcon
         }
     ]
