@@ -1,6 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import "../index.css"
 
+import cppIcon from "../assets/icons/otherIcons/cpp.webp"
+import dockerIcon from "../assets/icons/otherIcons/docker.png"
+import flutterIcon from "../assets/icons/otherIcons/flutter.png"
+import golangIcon from "../assets/icons/otherIcons/golang.webp"
+import javaIcon from "../assets/icons/otherIcons/java.svg"
+import pythonIcon from "../assets/icons/otherIcons/python.webp"
+import reactIcon from "../assets/icons/otherIcons/react.webp"
+import sqlIcon from "../assets/icons/otherIcons/sql.webp"
+import typescriptIcon from "../assets/icons/otherIcons/typescript.svg"
+import jetbrainsIcon from "../assets/icons/otherIcons/jetbrains.png"
+import s3Icon from "../assets/icons/otherIcons/s3.svg"
+import linuxIcon from "../assets/icons/otherIcons/linux.webp"
+
 type CarouselElement = {
     name: string,
     imagePath: string,
@@ -82,53 +95,53 @@ export function ScrollingCarousel() {
     const programmingLanguages: CarouselElement[] = [
         {
             name: "Golang",
-            imagePath: "https://liora.io/app/uploads/2024/12/golang.webp"
+            imagePath: golangIcon
         },
         {
             name: "Flutter",
-            imagePath: "https://avatars.githubusercontent.com/u/14101776?s=280&v=4"
+            imagePath: flutterIcon
         },
         {
             name: "Java",
-            imagePath: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+            imagePath: javaIcon
         },
         {
             name: "TypeScript",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original"
+            imagePath: typescriptIcon
         },
         {
             name: "C++",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1280px-ISO_C%2B%2B_Logo.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+            imagePath: cppIcon
         },
         {
             name: "Python",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1280px-Python-logo-notext.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+            imagePath: pythonIcon
         },
         {
             name: "SQL",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sql_data_base_with_logo.svg/1920px-Sql_data_base_with_logo.svg.png?utm_source=fr.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            imagePath: sqlIcon
         },
         {
             name: "React",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/langfr-1280px-React_Logo_SVG.svg.png?utm_source=fr.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            imagePath: reactIcon
         }
     ]
     const misellaneousTools: CarouselElement[] = [
         {
             name: "Docker",
-            imagePath: "https://cours.cocadmin.com/content-assets/public/eyJhbGciOiJIUzI1NiJ9.eyJvYmplY3Rfa2V5IjoiUDRMTWtRYkNvWWRUNk5pRThaakVURWJ3IiwiZG9tYWluIjoiY291cnMuY29jYWRtaW4uY29tIn0.HogF8S6jOTzXpQgkUT95wShOUHYR5Z_iC48H1T41mOI"
+            imagePath: dockerIcon
         },
         {
             name: "Linux",
-            imagePath: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1280px-Tux.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+            imagePath: linuxIcon
         },
         {
             name: "S3",
-            imagePath: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original"
+            imagePath: s3Icon
         },
         {
             name:"Suite JetBrains",
-            imagePath:"https://avatars.githubusercontent.com/u/878437?s=200&v=4"
+            imagePath: jetbrainsIcon
         }
     ]
 
