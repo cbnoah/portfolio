@@ -1,0 +1,17 @@
+{
+  "alone": "Alone",
+  "group": "Group",
+  "unfinished": "In Progress",
+  "finished": "Finished Project",
+  "school": "School",
+  "work": "Work",
+  "website": "Website",
+  "noImage": "No Image",
+  "portfolioDescription": "This project is the portfolio you are currently viewing. This is the second version of it.\n\n",
+  "amicoockedDescription": "A revolutionary culinary application developed with Flutter. « Am I Cooked » allows users to discover new recipes, manage their favorites, and track their culinary progress through an integrated gamification system.",
+  "ymmovDescription": "This API is the REST backend for the Ymmo project (a project aimed at installing and configuring numerous web and infrastructure solutions for a group of real estate agencies across France), developed with Spring Boot (Java 26) to manage users, properties, transactions, and favorites. The entire setup revolves around a containerized architecture via Docker Compose, integrating a pre-configured PostgreSQL database via a SQL script and a S3-compatible file system (RustFS) for object storage. Secured by JWT tokens and easily exploratory thanks to its Swagger interface.",
+  "vinodomiaDescription": "SaaS for vineyard domains and viticulturists to assist them in managing stock and cash flow.",
+  "pictoflutterchatDescription": "A re-interpretation of Nintendo's PictoChat DS application for mobile phones.",
+  "chatperlipopetteDescription": "A mobile Flutter application allowing users to discover cat breeds from around the world, locate shelters and available kittens, and share their favorite discoveries.",
+  "groupietrackerDescription": "A web application using a Golang HTTP server and Go Templates to fetch information about music groups via an API and display it on an artist page template."
+}

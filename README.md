@@ -1,32 +1,124 @@
-# React + TypeScript + Vite
+# Portfolio - Noah CHARRIN-BOURRAT
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio and showcase website for Noah CHARRIN-BOURRAT, a student in computer development at Ynov Toulouse. This project presents his background, skills, projects, and makes it easy to get in touch.
 
-Currently, two official plugins are available:
+## About the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This site is the second version of a modern portfolio, inspired by a creative and dynamic visual style, including:
 
-## React Compiler
+- an immersive landing page
+- an "About" section with academic and professional background
+- a project section with descriptions and GitHub links
+- a contact form
+- light/dark theme support
+- smooth navigation with interactive scrolling
+- animations and an original design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the Oxlint configuration
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- react-i18next for internationalization
+- Lucide React for icons
+- Docker + Nginx for deployment
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Features
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Custom, modern, responsive design
+- Dedicated sections: home, about, projects, contact
+- Light/dark mode management
+- Multi-language support (French available, architecture ready for expansion)
+- Project display with tags, status, and external links
+- Contact form integrated with FormSubmit
+- Production-ready build
+
+## Project structure
+
+```bash
+portfolio/
+├── src/
+│   ├── component/
+│   │   ├── sections/
+│   │   ├── Background.tsx
+│   │   ├── Overlay.tsx
+│   │   ├── ThemeProvider.tsx
+│   │   └── ...
+│   ├── utils/
+│   │   └── i18n/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── public/
+├── Dockerfile
+├── docker-compose.yaml
+├── nginx.conf
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── index.html
+└── README.md
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Prerequisites
+
+- Node.js 20+
+- npm
+
+## Installation
+
+```bash
+npm install
+```
+
+## Run locally
+
+```bash
+npm run dev
+```
+
+Then open the URL shown by Vite in your browser.
+
+## Production build
+
+```bash
+npm run build
+```
+
+## Code quality check
+
+```bash
+npm run lint
+```
+
+## Docker
+
+The project is ready to run with Docker.
+
+### Build the image
+
+```bash
+docker build -t portfolio .
+```
+
+### Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+The site will be served at:
+
+- http://localhost
+
+## Deployment
+
+The Dockerfile uses a Node image to build the application and Nginx to serve the generated static files.
+
+## Contact
+
+- Website: https://cbnoah.com
+- CV: https://cv.cbnoah.com
+- GitHub: https://github.cbnoah.com
+- Email: contact@cbnoah.com
