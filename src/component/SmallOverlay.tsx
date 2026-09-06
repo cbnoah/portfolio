@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {MorphIcon} from "morphicons/react";
 import {Menu, X} from "lucide";
 import {ThemeToggle} from "./ThemeToggle.tsx";
+import {LanguageDropdown} from "./LanguageDropdown.tsx";
 
 type SmallOverlayProps = {
     activeSection?: string;
@@ -34,7 +35,7 @@ export function SmallOverlay({activeSection}: SmallOverlayProps) {
     return (
         <div
             ref={menuRef}
-            className={`absolute ${open ? "max-h-120 pb-6" : "max-h-18 pb-3"} overflow-hidden w-full bg-gray-50/40 dark:bg-[#2a2b2b]/40 z-100 transition-all duration-400 ease-in-out flex flex-col sm:hidden rounded-b-3xl top-0 right-0 py-2 px-4 backdrop-blur-xl drop-shadow-black/30 border-b border-white/20 dark:border-white/10`}>
+            className={`absolute ${open ? "max-h-120 pb-6" : "max-h-18 pb-3"} overflow-visible w-full bg-gray-50/40 dark:bg-[#2a2b2b]/40 z-100 transition-all duration-400 ease-in-out flex flex-col sm:hidden rounded-b-3xl top-0 right-0 py-2 px-4 backdrop-blur-xl drop-shadow-black/30 border-b border-white/20 dark:border-white/10`}>
             <div className="flex flex-row h-full w-full justify-between items-center px-2 shrink-0 gap-4">
                 <button
                     className={`w-full flex flex-row items-center justify-between gap-4 py-2.5 px-5 rounded-3xl transition-all duration-300 text-black dark:text-gray-200 cursor-pointer ${
@@ -50,7 +51,8 @@ export function SmallOverlay({activeSection}: SmallOverlayProps) {
                     <div className={"h-full w-px bg-linear-to-b from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
                     <div className={"h-full w-px bg-linear-to-t from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
                 </div>
-                <div className="flex flex-row items-center pr-2">
+                <div className="flex flex-row items-center gap-1 pr-1">
+                    <LanguageDropdown/>
                     <ThemeToggle/>
                 </div>
             </div>

@@ -1,10 +1,11 @@
 import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from "react";
 import "../css/scrollbar.css"
 import "../index.css"
-import {Languages} from "lucide-react";
 import {useActiveSection} from "../hooks/useActiveSection.tsx";
 import {ThemeToggle} from "./ThemeToggle.tsx";
+import {LanguageDropdown} from "./LanguageDropdown.tsx";
 import {SmallOverlay} from "./SmallOverlay.tsx";
+import {useTranslation} from "react-i18next";
 
 export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; theme?: boolean }>(
     ({children}, ref) => {
@@ -20,6 +21,8 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
         const activeSection = useActiveSection(contentRef, ["home", "about", "projects", "contact"]);
 
         const [thumbHeight, setthumbHeight] = useState(150);
+
+        const {t} = useTranslation();
 
         function handleResize() {
             if (scrollTrackRef.current && contentRef.current) {
@@ -181,22 +184,24 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                             <div
                                 className={`w-full h-full flex flex-row justify-between items-center ${smallTopBar ? "px-0" : "md:px-15 2xl:px-75"}`}>
                                 <a href={"#home"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "home" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Accueil</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "home" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>{t("home")}</a>
                                 <a href={"#about"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "about" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>A Propos</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "about" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>{t("about")}</a>
                                 <a href={"#projects"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "projects" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Projects</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "projects" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>{t("projects")}</a>
                                 <a href={"#contact"}
-                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "contact" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>Contact</a>
+                                   className={`text-black dark:text-gray-200 text-2xl xl:text-3xl font-[Anybody] p-4 xl:p-5 rounded-3xl transition-all duration-300 ${activeSection === "contact" ? "shadow-(--inset-top-bar-button-shadow) font-medium" : "shadow-[inset_0_0_0_transparent] font-light"}`}>{t("contact")}</a>
                             </div>
                             <div className={"h-full flex flex-row justify-center items-center gap-6 xl:gap-7"}>
                                 <div className={"self-stretch my-2 flex flex-col"}>
-                                    <div className={"h-full w-px bg-linear-to-b from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
-                                    <div className={"h-full w-px bg-linear-to-t from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
+                                    <div
+                                        className={"h-full w-px bg-linear-to-b from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
+                                    <div
+                                        className={"h-full w-px bg-linear-to-t from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
                                 </div>
                                 <div
                                     className={"w-full xl:w-auto h-full flex md:flex-row flex-col justify-around xl:justify-center items-center md:gap-5 pr-3 xl:pr-0 text-black dark:text-gray-200"}>
-                                    <Languages size={30} strokeWidth={1.5}/>
+                                    <LanguageDropdown/>
                                     <ThemeToggle/>
                                 </div>
                             </div>
