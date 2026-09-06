@@ -84,7 +84,7 @@ Bien que le développement web ne constitue pas nécessairement ma spécialité 
                        beginningDate={new Date(2021, 9)} endingDate={new Date(2024, 7)} description={
             "Acquisition de fortes bases en Python et des bases en développement web (HTML, CSS, JS), grace au développement de plusieurs projets en groupe"
         }/>,
-        <StepComponent title={"Bachelor Informatique (Spé. Informatique)"} company={"Ynov"} city={"Toulouse"}
+        <StepComponent title={"Bachelor Informatique (Spé. Développement)"} company={"Ynov"} city={"Toulouse"}
                        country={"France"} beginningDate={new Date(2024, 9)} description={
             "Acquisition de bases solides en Golang, Java, Python, C++, Flutter, Web avec l'apprentissage de nouvelles notions via de nombreux projets, majoritairement en groupe :\n" +
             "Application mobile de recettes de cuisine en Flutter avec API en JS (express.js) et base de données en MySQL\n" +
