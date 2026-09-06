@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import {useState} from "react";
 import {DescriptionMarkdown} from "./DescriptionMarkdown.tsx";
+import {useTranslation} from "react-i18next";
 
 export type Tag = {
     color: string,
@@ -45,6 +46,7 @@ export function ProjectComponent({
 
     const [expanded, setExpanded] = useState(false);
     let [height] = useState(showExpandBtn == true && showExpandBtn !== null ? "h-160" : "h-150");
+    const {t} = useTranslation();
     return (
         <div
             className={`dark:bg-[#09090B]/45 bg-gray-200/45 ${description.length > 1000 ? (expanded ? "h-full" : height) : "h-full"} w-[80%] sm:w-[85%] md:w-[90%] xl:w-full mx-auto rounded-3xl flex flex-col items-center justify-start py-8 sm:py-10 px-5 sm:px-15 gap-8 border border-white/30 dark:border-dark/30 hover:border-white dark:hover:border-black hover:bg-gray-200 dark:hover:bg-[#09090B]/70 transition-all duration-300`}>
@@ -54,7 +56,7 @@ export function ProjectComponent({
                     <div className={"block w-30 h-30 border border-white/30 dark:border-dark/30 rounded-2xl shrink-0"}>
                         {projectImagePath === undefined || projectImagePath === "" ?
                             <span
-                                className={"w-full h-full flex text-2xl text-center justify-center items-center text-black dark:text-white"}>Aucune Image</span> :
+                                className={"w-full h-full flex text-2xl text-center justify-center items-center text-black dark:text-white"}>{t("noImage")}</span> :
                             <img src={projectImagePath}
                                  alt="Project Image"
                                  className={"w-full h-full rounded-2xl"}
@@ -65,11 +67,11 @@ export function ProjectComponent({
                         <h3 className={"text-2xl sm:text-4xl font-extrabold mb-2 font-[Anybody] text-black dark:text-white wrap-anywhere"}>{title}</h3>
                         <div className={"flex flex-row gap-2 text-black dark:text-white"}>
                             {group ? <UsersRound className={"size-4.5 sm:size-6"}/> : <UserRound className={"size-4.5 sm:size-6"}/>}
-                            <h4 className={"text-sm sm:text-lg mb-2 jetbrains-mono text-black dark:text-white"}>{group ? "En Groupe" : "Seul"}</h4>
+                            <h4 className={"text-sm sm:text-lg mb-2 jetbrains-mono text-black dark:text-white"}>{group ? t("group") : t("alone")}</h4>
                         </div>
                         <div className={"flex flex-row gap-2 text-black dark:text-white"}>
                             {finished ? <Check className={"size-4.5 sm:size-6"}/> : <Clock className={"size-4.5 sm:size-6"}/>}
-                            <h4 className={"text-sm sm:text-lg mb-2 jetbrains-mono text-black dark:text-white"}>{finished ? "Projet Fini" : "En Cours"}</h4>
+                            <h4 className={"text-sm sm:text-lg mb-2 jetbrains-mono text-black dark:text-white"}>{finished ? t("finished") : t("unfinished")}</h4>
                         </div>
                     </div>
                 </div>

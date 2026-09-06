@@ -1,5 +1,5 @@
 import {ProjectComponent} from "../ProjectComponent.tsx";
-import {BuildingIcon, Cloud, GitBranch, Globe, School, Smartphone} from "lucide-react";
+import {BuildingIcon, Cloud, GitBranch, Globe, Home, School, Smartphone} from "lucide-react";
 import amicoockedIcon from "../../assets/icons/projectsIcons/amicooked.png";
 import vinodomiaIcon from "../../assets/icons/projectsIcons/vinodomia.webp";
 import chatperlipopetteIcon from "../../assets/icons/projectsIcons/chatperlipopette.png";
@@ -11,10 +11,10 @@ export function ProjectSection() {
 
     const projects = [
         <ProjectComponent title={"Portfolio"} finished={true} group={false}
-                          description={"Ce projet est le portfolio que vous êtes en train de consulter en ce moment. Il s'agit de la 2ème version de ce dernier."}
+                          description={t("portfolioDescription")}
                           tags={[{
                               color: "#FBAF63",
-                              title: "École",
+                              title: t("school"),
                               icon: School
                           }, {
                               color: "#2766d1",
@@ -23,7 +23,7 @@ export function ProjectSection() {
                           }]}
                           links={[{
                               icon: Globe,
-                              title: "Website",
+                              title: t("website"),
                               path: "https://cbnoah.com"
                           }, {
                               icon: GitBranch,
@@ -31,11 +31,11 @@ export function ProjectSection() {
                               path: "https://github.com/cbnoah/portfolio"
                           }]}/>,
         <ProjectComponent title={"Am I Cooked ?"} finished={true} group={true}
-                          description={"Une application culinaire révolutionnaire développée avec Flutter. « Am I Cooked » permet aux utilisateurs de découvrir de nouvelles recettes, de gérer leurs favoris et de suivre leurs progrès culinaires grâce à un système de gamification intégré."}
+                          description={t("amicoockedDescription")}
                           tags={[
                               {
                                   color: "#FBAF63",
-                                  title: "École",
+                                  title: t("school"),
                                   icon: School
                               },
                               {
@@ -52,10 +52,10 @@ export function ProjectSection() {
                           projectImagePath={amicoockedIcon}
         />,
         <ProjectComponent title={"Ymmo (API)"} finished={true} group={true}
-                          description={"Cette API est le backend REST du projet Ymmo (un projet visant à installer et à configurer de nombreuses solutions web et infra pour un groupe d'agence immobilière à travers la France), développé avec Spring Boot (Java 26) pour gérer les utilisateurs, les propriétés, les transactions et les favoris. L'ensemble s'articule autour d'une architecture conteneurisée via Docker Compose, intégrant une base de données PostgreSQL préconfigurée via un script SQL et un système de fichiers compatible S3 (RustFS) pour le stockage d'objets. Sécurisée par des tokens JWT et facilement explorable grâce à son interface Swagger."}
+                          description={t("ymmovDescription")}
                           tags={[{
                               color: "#FBAF63",
-                              title: "École",
+                              title: t("school"),
                               icon: School
                           }, {
                               color: "#2766d1",
@@ -72,10 +72,10 @@ export function ProjectSection() {
                               path: "https://github.com/Minjxxe8/Ymmo_Api"
                           }]}/>,
         <ProjectComponent title={"VinoDomia"} finished={false} group={true}
-                          description={"SaaS à destination des domaines viticoles et des viticulteurs pour les assister dans la gestion de stock et de caisse."}
+                          description={t("vinodomiaDescription")}
                           tags={[{
                               color: "#fb6363",
-                              title: "Travail",
+                              title: t("work"),
                               icon: BuildingIcon
                           }, {
                               color: "#2766d1",
@@ -84,12 +84,12 @@ export function ProjectSection() {
                           }]}
                           projectImagePath={vinodomiaIcon}/>,
         <ProjectComponent title={"PictoFlutterChat"} finished={false} group={false}
-                          description={"Une réinterprétation de l'application PictoChat DS de Nintendo pour téléphones portables."}
+                          description={t("pictoflutterchatDescription")}
                           tags={[
                               {
                                   color: "#43ec50",
-                                  title: "Perso",
-                                  icon: School
+                                  title: t("alone"),
+                                  icon: Home
                               },
                               {
                                   color: "#502fff",
@@ -103,11 +103,11 @@ export function ProjectSection() {
                               path: "https://github.com/cbnoah/PictoFlutterChat"
                           }]}/>,
         <ProjectComponent title={"ChatPerlipopette"} finished={true} group={true}
-                          description={"Une application mobile Flutter permettant de découvrir des races de chats du monde entier, de localiser des refuges et des chatons disponibles, et de partager vos découvertes préférées."}
+                          description={t("chatperlipopetteDescription")}
                           tags={[
                               {
                                   color: "#FBAF63",
-                                  title: "École",
+                                  title: t("school"),
                                   icon: School
                               },
                               {
@@ -123,10 +123,10 @@ export function ProjectSection() {
                           }]}
                           projectImagePath={chatperlipopetteIcon}/>,
         <ProjectComponent title={"Groupie Tracker"} finished={true} group={true}
-                          description={"Une application web utilisant un serveur HTTP Golang et Go Templates pour récupérer des informations sur des groupes de musique via une API et les afficher sur un modèle de page d'artiste."}
+                          description={t("groupietrackerDescription")}
                           tags={[{
                               color: "#FBAF63",
-                              title: "École",
+                              title: t("school"),
                               icon: School
                           }, {
                               color: "#2766d1",
