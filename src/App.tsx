@@ -72,7 +72,7 @@ function App() {
                     <div className="fixed inset-0 z-0 w-screen h-screen pointer-events-none">
                         <Background/>
                     </div>
-                    <div className={"flex flex-col gap-70 md:px-0"}>
+                    <main className={"flex flex-col gap-70 md:px-0"}>
                         <div
                             className="w-full h-screen z-10 relative cursor-default select-none px-5 pt-5 pb-20 xl:p-10 flex flex-col justify-end items-start gap-4"
                             id={"home"}>
@@ -115,7 +115,7 @@ function App() {
                                  className={`relative z-10 rounded-t-3xl pt-40 transition-opacity duration-300 ${activeSection != "home" ? "opacity-100" : "opacity-0"}`}>
                             <ContactSection/>
                         </section>
-                    </div>
+                    </main>
                     <Footer/>
                 </div>
             </Overlay>
