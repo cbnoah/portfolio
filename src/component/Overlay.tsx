@@ -200,7 +200,7 @@ export const Overlay = forwardRef<HTMLDivElement, { children: React.ReactNode; t
                                         className={"h-full w-px bg-linear-to-t from-transparent from-5% to-black/50 dark:to-gray-200/50"}></div>
                                 </div>
                                 <div
-                                    className={"w-full xl:w-auto h-full flex md:flex-row flex-col justify-around xl:justify-center items-center md:gap-5 pr-3 xl:pr-0 text-black dark:text-gray-200"}>
+                                    className={"w-full xl:w-auto h-full flex flex-row justify-around xl:justify-center items-center md:gap-5 pr-3 xl:pr-0 text-black dark:text-gray-200"}>
                                     <LanguageDropdown/>
                                     <ThemeToggle/>
                                 </div>
